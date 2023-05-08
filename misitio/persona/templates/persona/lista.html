@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Creación de usuarios, alta usuarios mediante un formulario y luego una lista de usuarios">
+    <meta name="keywords" content="usuarios django python alta ">
+    <title>Q-Order Test</title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    
+    <section class="container">
+        <div class="row">
+            <div class="col-2">
+               
+            </div>
+            <div class="col-8">
+                <h1 id="titulo">Q-Order Test</h1>
+            </div>
+            <div class="col-2">
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-2">
+               
+            </div>
+            <div class="col-8">
+                <a href="{% url 'persona:crear' %}" style type="text/css" text-decoration: none>
+                <button type="button" class="btn btn-success">Crear Usuarios</button>
+                </a>
+            </div>
+            <div class="col-2">
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
+
+

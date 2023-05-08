@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Creación de usuarios, alta usuarios mediante un formulario y luego una lista de usuarios">
+    <meta name="keywords" content="usuarios django python alta ">
+    <title>Q-Order Test</title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+</br>
+</br>
+</br>
+
+
+
+
+    <section class="container">
+        <div class="row">
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+                <h2> Nuevo usuario </h2>
+
+                <div class="card">
+                    <h5 class="card-header">Ingrese Datos</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">Evaluación Q-Order Python - Django</h5>
+                      <p class="card-text">
+                        1- Crear un formulario donde se ingresan los campos nombre, apellido y mail
+                      </p>
+                      <div id="liveAlertPlaceholder"></div>
+                        <form method='post' name="formulario" onsubmit="return validar_campo(formulario)">
+                        {% csrf_token %}
+    
+                        {{ form.as_p }}
+    
+                        <button type="submit" class="btn btn-primary" id="liveAlertBtn">Crear Usuario</button>
+                      </form>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+    </section>
+
+</br>
+</br>
+</br>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <h2> Lista de Usuarios </h2>
+                <div class="card">
+                    <h5 class="card-header">Usuarios</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">Evaluación Q-Order Python - Django</h5>
+                      <p class="card-text">
+                        2- En una lista mostrar los usuarios creados
+                      </p>
+                    
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Mail</th>
+                            <th scope="col">Opciones</th>
+                          </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+    
+                            {% for per in persona_lista %}
+                          <tr>
+                            <td>{{per.nombre}}</td>
+                            <td> {{per.apellido}}</td>
+                            <td> {{per.mail}}</td>
+                            <td>
+                                <a href="{% url 'persona:borrar' per.pk %}">Borrar</a>
+                            </td>
+                          </tr>
+    
+                          {% endfor %}
+    
+                        </tbody>
+                      </table>
+
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </section>
+
+</table>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/validation.js' %}">  </script>
+</body>
+
+</html>
